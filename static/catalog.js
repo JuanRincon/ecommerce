@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Price: $${product.price}</p>
             <button onclick="alert('Added to cart')">Add to Cart</button>
         `;
-        productContainer.appendChild(productDiv);
+        productList.appendChild(productDiv);
     });
-	
+
     const reviewForm = document.getElementById('review-form');
     reviewForm.addEventListener('submit', (e) => {
         e.preventDefault();
