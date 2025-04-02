@@ -19,7 +19,31 @@
     </header>
     <main>
         <h2>Welcome to Our Store</h2>
-        <p>Your one-stop shop for all your electrical needs!</p>
+        <p>Your one-stop shop for all your electrical needs!</p>     
+		<table class="table transaction-table">
+            <thead>
+                <tr>
+                    <th>Producto_id</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Color</th>
+                    <th>Descripción</th>
+                    <th>Ubicación</th>
+                </tr>
+            </thead>
+            <tbody>
+				{% for productos in index %}
+                <tr>
+                    <td>{{ productos.idProducto}}</td>
+                    <td>{{ productos.nombre}}</td>
+                    <td>{{ productos.cantidad}}</td>
+                    <td>{{ productos.color}}</td>
+                    <td>{{ productos.descripcion}}</td>
+                    <td>{{ productos.ubicacion}}</td>
+				</tr>
+                {% endfor %}
+			</tbody>
+		</table>
     </main>
     <footer>
         <p>&copy; 2025 Electrical Products Store</p>
