@@ -1,10 +1,11 @@
+import {dbase} from './dbase.js'; 
 document.addEventListener('DOMContentLoaded', () => {
-    const products = [
+    const products = dbase; /*[
         { id: 1, name: 'Electrical Wire', price: 25.99 },
         { id: 2, name: 'Circuit Breaker', price: 45.99 },
         { id: 3, name: 'LED Bulb', price: 5.99 }
     ];
-
+*/
     const productList = document.getElementById('products');
     products.forEach(product => {
         const productDiv = document.createElement('div');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         productDiv.innerHTML = `
             <h3>${product.name}</h3>
             <p>Price: $${product.price}</p>
+			<p>Color: ${product.color}</p>
             <button onclick="alert('Added to cart')">Add to Cart</button>
         `;
         productList.appendChild(productDiv);
