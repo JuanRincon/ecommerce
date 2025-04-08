@@ -3,29 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog</title>
+    <title>Electrical Products E-Commerce</title>
     <link rel="stylesheet" href="./static/styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Shop</h1>
+        <h1>Electrical Products Store</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/catalog">Catalog</a>
+            <a href="/contact">Contact</a>
+            <a href="/register">Register</a>
+            <a href="/order_tracking">Track Order</a>
+        </nav>
     </header>
     <main>
-		<h2>Desde aquí va la parte de productos</h2>
-        <section id="products">
-            <!-- Products will be dynamically added here by JavaScript -->
-        </section>
-		<h2>Hasta aquí va la parte de productos</h2>
-        <section id="reviews">
-            <h2>Customer Reviews</h2>
-            <form id="review-form">
-                <textarea id="review-text" placeholder="Write your review..."></textarea>
-                <button type="submit">Submit Review</button>
-            </form>
-            <ul id="review-list"></ul>
-        </section>
-    <script src="./static/catalog.js" type="module"></script>
+        <h2>Welcome to Our Store</h2>
+        <p>Your one-stop shop for all your electrical needs!</p>     
+		<table class="table transaction-table">
+            <thead>
+                <tr>
+                    <th>Producto_id</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Color</th>
+                    <th>Descripción</th>
+                    <th>Ubicación</th>
+                </tr>
+            </thead>
+            <tbody>
+				{% for productos in catalog %}
+                <tr>
+                    <td>{{ productos.id}}</td>
+                    <td>{{ productos.name}}</td>
+                    <td>{{ productos.price}}</td>
+                    <td>{{ productos.color}}</td>
+                    <td>{{ productos.descripcion}}</td>
+                    <td>{{ productos.ubicacion}}</td>
+				</tr>
+                {% endfor %}
+			</tbody>
+		</table>
     </main>
+    <footer>
+        <p>&copy; 2025 Electrical Products Store</p>
+    </footer>
 </body>
 </html>
 

@@ -1,11 +1,7 @@
 import {dbase} from './dbase.js'; 
 document.addEventListener('DOMContentLoaded', () => {
-    const products = dbase; /*[
-        { id: 1, name: 'Electrical Wire', price: 25.99 },
-        { id: 2, name: 'Circuit Breaker', price: 45.99 },
-        { id: 3, name: 'LED Bulb', price: 5.99 }
-    ];
-*/
+    const products = dbase;
+
     const productList = document.getElementById('products');
     products.forEach(product => {
         const productDiv = document.createElement('div');
