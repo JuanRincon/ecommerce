@@ -1,4 +1,4 @@
-import {dbase} from './dbase.js'; 
+import { dbase } from './dbase.js';
 document.addEventListener('DOMContentLoaded', () => {
     const products = dbase;
 
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         productDiv.className = 'product';
         productDiv.innerHTML = `
             <h3>${product.name}</h3>
+            <img src = ${product.imagen}/>
             <p>Price: $${product.price}</p>
 			<p>Color: ${product.color}</p>
             <button onclick="alert('Added to cart')">Add to Cart</button>
@@ -38,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({ review: text })
         })
-        .then(response => response.json())
-        .then(data => {
-            const sentiment = document.createElement('span');
-            sentiment.textContent = ` (Sentiment: ${data.sentiment})`;
-            reviewItem.appendChild(sentiment);
-        });
+            .then(response => response.json())
+            .then(data => {
+                const sentiment = document.createElement('span');
+                sentiment.textContent = ` (Sentiment: ${data.sentiment})`;
+                reviewItem.appendChild(sentiment);
+            });
     }
 });

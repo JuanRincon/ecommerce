@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
 	db.from_db()
-	db.for_catalog()
+	db.for_index()
 	return render_template('index.html')
 
 # Route for product catalog

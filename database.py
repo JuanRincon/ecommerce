@@ -58,8 +58,6 @@ def connect_to_db():
 
 connection = connect_to_db()
 
-from mysql.connector import errors
-
 # If connection fails, you can try reconnecting in a loop or handle accordingly
 if connection is None:
     print("Reconnection failed.")
@@ -68,7 +66,7 @@ else:
 
 def from_db():
 	cursor = connection.cursor()
-	cursor.execute("SELECT * FROM productos")
+	cursor.execute("select * from images, productos where productos.id = images.idProducto")
 	myresult = cursor.fetchall()
 	#Convertir los datos a diccionario
 	insertObject = []
@@ -78,7 +76,7 @@ def from_db():
 	cursor.close()
 	return insertObject
 
-def for_catalog():
+def for_index():
 	iden = open("./static/dbase.js", "w")
 	iden.write(f"export const dbase = {from_db()}")
 	iden.close()
